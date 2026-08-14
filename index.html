@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f1e8" />
+  <meta name="description" content="Nibble — an elegant personal recipe collection by Damien Dufour." />
+  <title>Nibble — Recipes by Damien Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked">
+  <div id="passwordGate" class="gate" aria-live="polite">
+    <div class="gate-card">
+      <div class="brand-mark">n</div>
+      <p class="eyebrow">Private recipe collection</p>
+      <h1>Nibble</h1>
+      <p class="gate-copy">A small collection of food worth making twice.</p>
+      <form id="passwordForm" autocomplete="off">
+        <label for="password">Password</label>
+        <div class="password-row">
+          <input id="password" type="password" placeholder="Enter password" autofocus required />
+          <button type="submit">Enter</button>
+        </div>
+        <p id="passwordError" class="error" role="alert"></p>
+      </form>
+      <p class="gate-credit">Created by Damien Dufour</p>
+    </div>
+  </div>
+
+  <main id="app" class="app" aria-hidden="true">
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="Nibble home">nibble<span>.</span></a>
+      <nav>
+        <a href="#recipes">Recipes</a>
+        <a href="#shopping">Shopping</a>
+        <button id="lockButton" class="text-button">Lock</button>
+      </nav>
+    </header>
+
+    <section id="top" class="hero">
+      <div>
+        <p class="eyebrow">Damien's kitchen</p>
+        <h1>Three dinners.<br><em>Beautifully simple.</em></h1>
+        <p class="hero-copy">A personal collection of polished, gluten- and lactose-free-friendly recipes designed for easy cooking and elegant plating.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#recipes">Browse recipes</a>
+          <a class="secondary-button" href="#shopping">Open shopping list</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="plate plate-a"></div>
+        <div class="plate plate-b"></div>
+        <span class="hero-word">nibble</span>
+      </div>
+    </section>
+
+    <section class="controls" id="recipes">
+      <div>
+        <p class="eyebrow">Recipe collection</p>
+        <h2>What are we making?</h2>
+      </div>
+      <div class="servings-control">
+        <label for="servings">Serves</label>
+        <select id="servings">
+          <option value="2">2</option>
+          <option value="4" selected>4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="recipe-grid">
+      <article class="recipe-card featured" data-recipe="chicken">
+        <div class="recipe-image image-photo">
+          <img src="assets/chicken-mango-salad.png" alt="Grilled chicken mango salad plated in a ceramic bowl" />
+          <span class="pill">Fresh · 35 min</span>
+        </div>
+        <div class="recipe-body">
+          <p class="eyebrow">01 · Summer bowl</p>
+          <h3>Grilled Chicken & Mango Salad</h3>
+          <p>Charred chicken, ripe mango, avocado, herbs and cashews with a bright lime-honey dressing.</p>
+          <button class="recipe-toggle" data-target="chickenPanel">View recipe <span>↗</span></button>
+        </div>
+      </article>
+
+      <article class="recipe-card" data-recipe="lamb">
+        <div class="recipe-image plating-art lamb-art">
+          <svg viewBox="0 0 420 300" role="img" aria-label="Plating guide for lamb chops with potatoes, carrots and green beans">
+            <ellipse cx="210" cy="150" rx="165" ry="105" class="plate-base"/>
+            <path d="M117 183 C150 128, 210 112, 254 120" class="jus"/>
+            <g class="lamb-chops">
+              <rect x="176" y="95" width="72" height="28" rx="14" transform="rotate(-27 212 109)"/>
+              <rect x="194" y="119" width="78" height="28" rx="14" transform="rotate(-12 233 133)"/>
+              <rect x="185" y="146" width="76" height="28" rx="14" transform="rotate(10 223 160)"/>
+            </g>
+            <g class="veg-gold"><circle cx="122" cy="105" r="15"/><circle cx="145" cy="90" r="13"/><circle cx="150" cy="121" r="14"/></g>
+            <g class="veg-orange"><rect x="279" y="105" width="52" height="10" rx="5" transform="rotate(18 305 110)"/><rect x="276" y="128" width="55" height="10" rx="5" transform="rotate(-8 304 133)"/></g>
+            <g class="veg-green"><path d="M284 168 q30 -10 55 5"/><path d="M279 183 q34 -8 61 7"/><path d="M279 198 q32 -6 57 7"/></g>
+          </svg>
+          <span class="pill">Elegant · 55 min</span>
+        </div>
+        <div class="recipe-body">
+          <p class="eyebrow">02 · Bistro plate</p>
+          <h3>Lamb Chops & Mint Sauce</h3>
+          <p>Rosemary potatoes, honey carrots, green beans and a glossy red-wine jus.</p>
+          <button class="recipe-toggle" data-target="lambPanel">View recipe <span>↗</span></button>
+        </div>
+      </article>
+
+      <article class="recipe-card" data-recipe="duck">
+        <div class="recipe-image plating-art duck-art">
+          <svg viewBox="0 0 420 300" role="img" aria-label="Plating guide for duck breast with sweet potato, glazed carrots and cranberry sauce">
+            <ellipse cx="210" cy="150" rx="165" ry="105" class="plate-base"/>
+            <path d="M115 182 C150 142, 192 137, 226 150 C196 169, 158 181, 115 182Z" class="sweet-potato"/>
+            <g class="duck-slices">
+              <rect x="202" y="88" width="88" height="24" rx="12" transform="rotate(14 246 100)"/>
+              <rect x="194" y="115" width="94" height="24" rx="12" transform="rotate(11 241 127)"/>
+              <rect x="188" y="143" width="92" height="24" rx="12" transform="rotate(8 234 155)"/>
+              <rect x="187" y="171" width="84" height="24" rx="12" transform="rotate(4 229 183)"/>
+            </g>
+            <g class="veg-orange"><rect x="290" y="172" width="53" height="10" rx="5" transform="rotate(-18 316 177)"/><rect x="285" y="194" width="50" height="10" rx="5" transform="rotate(10 310 199)"/></g>
+            <circle cx="114" cy="112" r="10" class="cranberry"/><circle cx="129" cy="96" r="8" class="cranberry"/><circle cx="139" cy="116" r="7" class="cranberry"/>
+          </svg>
+          <span class="pill">Rich · 50 min</span>
+        </div>
+        <div class="recipe-body">
+          <p class="eyebrow">03 · Autumn plate</p>
+          <h3>Duck, Sweet Potato & Cranberry</h3>
+          <p>Crisp-skinned duck with silky sweet potato, glazed carrots and cranberry-orange sauce.</p>
+          <button class="recipe-toggle" data-target="duckPanel">View recipe <span>↗</span></button>
+        </div>
+      </article>
+    </section>
+
+    <section id="recipeDetails" class="recipe-details">
+      <div id="chickenPanel" class="recipe-panel active">
+        <div class="detail-heading">
+          <div><p class="eyebrow">Grilled Chicken & Mango Salad</p><h2>Fresh, bright, layered.</h2></div>
+          <button class="print-button" onclick="window.print()">Print</button>
+        </div>
+        <div class="detail-grid">
+          <div>
+            <h4>Ingredients</h4>
+            <div class="ingredient-group">
+              <h5>Chicken</h5>
+              <ul class="ingredients" data-base-servings="4">
+                <li data-qty="4" data-unit="">chicken breasts</li><li data-qty="2" data-unit="tbsp">olive oil</li><li data-qty="1" data-unit="">lime, juiced</li><li data-qty="2" data-unit="">garlic cloves, crushed</li><li data-qty="1" data-unit="tsp">smoked paprika</li><li data-qty="1" data-unit="tsp">ground ginger</li><li>Salt & black pepper</li>
+              </ul>
+              <h5>Salad</h5>
+              <ul class="ingredients" data-base-servings="4">
+                <li data-qty="2" data-unit="">ripe mangoes</li><li data-qty="2" data-unit="">avocados</li><li data-qty="1" data-unit="">large red pepper</li><li data-qty="2" data-unit="">medium carrots</li><li data-qty="175" data-unit="g">mixed salad leaves</li><li data-qty="4" data-unit="">spring onions</li><li data-qty="1" data-unit="small bunch">fresh coriander</li><li data-qty="1" data-unit="small bunch">fresh mint</li><li data-qty="70" data-unit="g">roasted cashews or peanuts</li>
+              </ul>
+              <h5>Dressing</h5>
+              <ul class="ingredients" data-base-servings="4">
+                <li data-qty="4" data-unit="tbsp">olive oil</li><li data-qty="2" data-unit="">limes, juiced</li><li data-qty="2" data-unit="tbsp">honey</li><li data-qty="2" data-unit="tbsp">gluten-free tamari</li><li data-qty="1" data-unit="">garlic clove</li><li data-qty="1" data-unit="tsp">fresh ginger, grated</li><li data-qty="0.5" data-unit="">fresh chilli, optional</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h4>Method</h4>
+            <ol class="method">
+              <li><strong>Marinate.</strong> Mix the chicken marinade ingredients, coat the breasts and leave for 20–30 minutes.</li>
+              <li><strong>Dress.</strong> Whisk olive oil, lime, honey, tamari, garlic, ginger and chilli until glossy.</li>
+              <li><strong>Build.</strong> Combine leaves, mango, avocado, pepper, carrot, spring onion, coriander and mint.</li>
+              <li><strong>Grill.</strong> Cook chicken over medium-high heat for 5–7 minutes per side, until the centre reaches 75°C. Rest 5 minutes.</li>
+              <li><strong>Finish.</strong> Toss the salad gently with most of the dressing, top with sliced chicken and nuts, then drizzle the rest over.</li>
+            </ol>
+            <div class="chef-note"><span>Plating</span><p>Use a wide shallow bowl. Keep the chicken centred and slightly elevated, with mango and avocado visible around the edges. Finish with herbs, cashews and a final ribbon of dressing.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lambPanel" class="recipe-panel">
+        <div class="detail-heading"><div><p class="eyebrow">Lamb Chops & Mint Sauce</p><h2>Restaurant-style, without the fuss.</h2></div><button class="print-button" onclick="window.print()">Print</button></div>
+        <div class="detail-grid">
+          <div><h4>Ingredients</h4>
+            <ul class="ingredients" data-base-servings="4">
+              <li data-qty="12" data-unit="">lamb chops</li><li data-qty="650" data-unit="g">baby potatoes</li><li data-qty="14" data-unit="">baby carrots</li><li data-qty="350" data-unit="g">green beans</li><li data-qty="45" data-unit="g">fresh mint</li><li data-qty="1" data-unit="small bunch">rosemary</li><li data-qty="1" data-unit="small bunch">thyme</li><li data-qty="6" data-unit="">garlic cloves</li><li data-qty="2" data-unit="">shallots</li><li data-qty="2" data-unit="">lemons</li><li data-qty="200" data-unit="ml">red wine</li><li data-qty="400" data-unit="ml">gluten-free beef/lamb stock</li><li data-qty="6" data-unit="tbsp">red-wine vinegar</li><li data-qty="1" data-unit="tbsp">balsamic vinegar</li><li data-qty="2" data-unit="tsp">tomato purée</li><li data-qty="3" data-unit="tbsp">honey</li><li data-qty="2" data-unit="tbsp">caster sugar</li><li data-qty="9" data-unit="tbsp">olive oil</li><li data-qty="1" data-unit="tsp">ground cumin</li><li data-qty="1" data-unit="tsp">smoked paprika</li><li>Salt & black pepper</li>
+            </ul>
+          </div>
+          <div><h4>Method</h4><ol class="method">
+            <li><strong>Potatoes.</strong> Roast halved baby potatoes at 210°C with olive oil, garlic and rosemary for 30–40 minutes.</li>
+            <li><strong>Carrots.</strong> Roast with honey, oil and thyme for 20–25 minutes until glazed.</li>
+            <li><strong>Beans.</strong> Blanch 3–4 minutes, then toss briefly in olive oil with seasoning.</li>
+            <li><strong>Mint sauce.</strong> Dissolve caster sugar in a little boiling water, add red-wine vinegar, lemon and finely chopped mint.</li>
+            <li><strong>Jus.</strong> Soften shallot and garlic, cook tomato purée, add red wine and herbs, reduce, add stock and reduce again. Finish with balsamic and honey; strain.</li>
+            <li><strong>Lamb.</strong> Season with garlic, herbs, cumin, paprika, lemon and oil. Sear 2½–3½ minutes per side, render the fat edge, then rest 5 minutes.</li>
+          </ol><div class="chef-note"><span>Plating</span><p>Set three chops in a loose fan, potatoes to one side, carrots and beans in neat bundles, then spoon jus around the meat. Keep the mint sauce in small accents rather than covering the crust.</p></div></div>
+        </div>
+      </div>
+
+      <div id="duckPanel" class="recipe-panel">
+        <div class="detail-heading"><div><p class="eyebrow">Duck, Sweet Potato & Cranberry</p><h2>Rich, crisp, balanced.</h2></div><button class="print-button" onclick="window.print()">Print</button></div>
+        <div class="detail-grid">
+          <div><h4>Ingredients</h4>
+            <ul class="ingredients" data-base-servings="4">
+              <li data-qty="4" data-unit="">skin-on duck breasts</li><li data-qty="950" data-unit="g">sweet potatoes</li><li data-qty="14" data-unit="">baby carrots</li><li data-qty="250" data-unit="g">fresh/frozen cranberries</li><li data-qty="2" data-unit="">oranges</li><li data-qty="2" data-unit="">garlic cloves</li><li data-qty="5" data-unit="sprigs">thyme</li><li data-qty="2" data-unit="sprigs">rosemary</li><li data-qty="150" data-unit="ml">red wine</li><li data-qty="275" data-unit="ml">gluten-free chicken stock</li><li data-qty="90" data-unit="g">brown sugar</li><li data-qty="1" data-unit="">cinnamon stick</li><li data-qty="2" data-unit="tbsp">honey</li><li data-qty="4" data-unit="tbsp">olive oil</li><li>Salt & black pepper</li>
+            </ul>
+          </div>
+          <div><h4>Method</h4><ol class="method">
+            <li><strong>Sweet potato.</strong> Peel, cube and boil until soft. Drain very well and mash with olive oil, salt and pepper until silky.</li>
+            <li><strong>Cranberry-orange sauce.</strong> Simmer cranberries with orange juice/zest, brown sugar, cinnamon and a splash of red wine until the berries burst and the sauce thickens.</li>
+            <li><strong>Carrots.</strong> Roast at 200°C with honey, olive oil and thyme for 20–25 minutes.</li>
+            <li><strong>Duck.</strong> Score the skin. Start skin-side down in a cold pan, then cook over medium heat 8–10 minutes to render the fat. Turn and cook 3–5 minutes more. Rest 8–10 minutes.</li>
+            <li><strong>Jus.</strong> Deglaze with red wine, add stock, rosemary and thyme, then reduce until glossy.</li>
+          </ol><div class="chef-note"><span>Plating</span><p>Swipe sweet potato across the plate, fan the duck slices over the edge of it, arrange carrots opposite and dot cranberry sauce around the plate. Keep the crisp skin exposed.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shopping" class="shopping-section">
+      <div class="shopping-heading"><div><p class="eyebrow">One trip</p><h2>Shopping checklist</h2><p>Tap items as you shop. Your progress stays saved on this device.</p></div><button id="resetShopping" class="secondary-button">Reset</button></div>
+      <div class="shopping-grid" id="shoppingGrid"></div>
+    </section>
+
+    <footer>
+      <a class="logo" href="#top">nibble<span>.</span></a>
+      <p>Created by Damien Dufour · 2026</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
