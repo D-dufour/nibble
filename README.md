@@ -17,8 +17,18 @@ The site uses a client-side password gate. Password: `nibble2026!`
 
 ## Features
 - Responsive recipe cards
+- A growing recipe grid with no fixed meal count
 - Serving-size scaler (2 / 4 / 6 / 8)
 - Persistent shopping checklist
 - Recipe-specific plating guides
 - Printable recipe view
 - Session-based lock/unlock
+
+## Add another recipe
+1. Add the meal image to `assets/`.
+2. Copy a `.recipe-card` block in `index.html`, give it a unique `data-recipe` value, and update its image and copy.
+3. Copy a `.recipe-panel` block, give it a matching unique panel ID, and point the card's `data-target` at that ID.
+4. Add the recipe's ingredients to the shopping-list categories in `script.js`.
+5. Commit and push. GitHub Pages will publish the new recipe automatically.
+
+The recipe grid automatically creates as many rows as needed, so the collection is no longer limited to three meals.
